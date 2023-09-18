@@ -15,11 +15,22 @@
         } else {
             console.log("you're not allowed to come in")
         }
+        // TODO
+        // 1. Define a random number
+        // 2. Fetch data from form submission
+        // 3. Put logic into the answer (number is lower, equal or higher)
+        // 4. Give a response to user
+
     </script>
 </head>
 
 <body>
    <h1>Guess My Number</h1>
+   <form>
+    <label for="guess">number (1-100):</label><br>
+    <input type="number" id="guess" name="guess" max="100" min="1">
+    <input type="submit" value="Submit">
+  </form>
 </body>
 
 </html>

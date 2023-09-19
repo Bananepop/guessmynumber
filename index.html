@@ -1,36 +1,50 @@
-
 <head>
     <link rel="stylesheet" href="style.css">
     <title>My Portfolio</title>
-    <script>
-        const age = 5 //number
-        console.log(age + 5)
-        const name = 'gabriela' //string
-        console.log(name + ' Welcome!') //concatenation of strings
-        const loggedin = false //boolean
 
-        //conditional
-        if (age > 17) {
-            console.log('Welcome!')
-        } else {
-            console.log("you're not allowed to come in")
-        }
+</head>
+
+<body>
+    <h1>Guess My Number</h1>
+    <form id="guessform">
+        <label for="guess">number (1-100):</label><br>
+        <input type="number" id="guess" name="guess" max="100" min="1">
+        <input type="submit" value="Submit">
+    </form>
+    <div id="formresponse"></div>
+    <script>
         // TODO
         // 1. Define a random number
         // 2. Fetch data from form submission
         // 3. Put logic into the answer (number is lower, equal or higher)
         // 4. Give a response to user
+        const min = 1;
+        const max = 100;
+        const floatnumber = Math.random() * (max - min + 1)
+        const randomnumber = Math.floor(floatnumber) + min;
+
+        console.log("randomnumber", randomnumber);
+
+        const formElement = document.getElementById("guessform")
+        const formResponseElement = document.getElementById("formresponse")
+        const inputElement = document.getElementById("guess")
+        
+        formElement.addEventListener("submit", (e) => {
+            e.preventDefault()
+            const userguess = Number(inputElement.value)
+            let response = ""
+            if (userguess > randomnumber) {
+                response = 'Oh, too high! Try again'
+            } else if (userguess < randomnumber) {
+                response = "Too low! Try again";
+            } else {
+                response = "Correct"
+            }
+            formResponseElement.innerHTML = response
+
+        })
 
     </script>
-</head>
-
-<body>
-   <h1>Guess My Number</h1>
-   <form>
-    <label for="guess">number (1-100):</label><br>
-    <input type="number" id="guess" name="guess" max="100" min="1">
-    <input type="submit" value="Submit">
-  </form>
 </body>
 
 </html>

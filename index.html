@@ -28,19 +28,25 @@
         const formElement = document.getElementById("guessform")
         const formResponseElement = document.getElementById("formresponse")
         const inputElement = document.getElementById("guess")
-        
-        formElement.addEventListener("submit", (e) => {
-            e.preventDefault()
-            const userguess = Number(inputElement.value)
+
+        const determinedresponse = (userguessParameter) => {
             let response = ""
-            if (userguess > randomnumber) {
+            if (userguessParameter > randomnumber) {
                 response = 'Oh, too high! Try again'
-            } else if (userguess < randomnumber) {
+            } else if (userguessParameter < randomnumber) {
                 response = "Too low! Try again";
             } else {
                 response = "Correct"
             }
-            formResponseElement.innerHTML = response
+            return response
+        }
+
+        formElement.addEventListener("submit", (e) => {
+            e.preventDefault()
+            const userguess = Number(inputElement.value)
+
+            const userguessresponse = determinedresponse(userguess)
+            formResponseElement.innerHTML = userguessresponse
 
         })
 

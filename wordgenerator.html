@@ -1,0 +1,78 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Word Generator</title>
+    <script>
+        console.log("hello!")
+    </script>
+</head>
+
+<body>
+    <h1>Word Generator</h1>
+    <form id="guessform">
+        <input type="submit" value="Generate">
+    </form>
+    <div id="formresponse"></div>
+    <script>
+        // TODO
+        // 1. Define a list of words
+        // 1. Click a button
+        // 2. Pick two random words
+        // 3. Print them in that order to the screen
+
+
+        const animals = ["elefant", "butterflie", "dog", "cat", "dolphin", "monkey"]
+        const randomnumber = Math.floor(Math.random() * animals.length)
+        const formResponseElement = document.getElementById("formresponse")
+        formResponseElement.innerHTML = animals[randomnumber]
+
+        let zoo = ""
+
+        animals.forEach((animal, index) => {
+            console.log("Animal", animal, index)
+            //Downcounting descending index from 6 to 0 instead of 0 to 6 
+            if ('elefant' === animal || 'monkey' === animal) {
+                zoo += animal
+            }
+        })
+        console.log(zoo)
+        const temperatures = [1, 2, 3, 4, 5, 6, 7, 76]
+        const globalwarmingtemperatures = []
+        temperatures.forEach((temperature) => {
+            const modifiedtemperature = temperature + 2
+            console.log(modifiedtemperature)
+            globalwarmingtemperatures.push(modifiedtemperature)
+            console.log(globalwarmingtemperatures)
+        })
+        console.log(globalwarmingtemperatures)
+        // for (let index = 0; index < temperatures.length; index++) {
+        //     const element = temperatures[index];
+        //     console.log(element)
+        // }
+
+        const users = [
+            {
+                name: 'gaby',
+                color: 'green',
+                address: {
+                    street: 'hauptstrasse',
+                    housenumber: 5
+                }
+            },
+            {
+                name: 'tommy',
+                color: 'blue',
+                address: {
+                    street: 'Alexanderplatz',
+                    housenumber: 8
+                }
+            },
+        ]
+        users.forEach((user) => {
+            console.log(user["name"] + "'s favorite color: " + user["color"])
+            console.log(user["address"]['street'])
+        })
+
+    </script>
+</body>
+
+</html>

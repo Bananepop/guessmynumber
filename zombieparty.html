@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zombie Banana Party</title>
 </head>
+
 <body>
     <h1>Welcome to the Zombie Banana Party!</h1>
 
@@ -23,23 +25,8 @@
         // Boilerplate code for the Zombie Banana Party application
 
         // Create an array to store the list of guests
-        let guests = ["gaby", "maria"];
-
-        const addGuest=()=>{
-            console.log('Adding Guest...')
-            //Todos:
-            // 1. Check the name from the input tag and put it in a variable
-
-            const guestName = document.getElementById('bananaName').value //value va a ser lo que escriba el usuario
-            console.log("The new guest name is: " + guestName)
-
-            // 2. Push (append) the guest to the guest's list
-
-            console.log("adding guest " + guestName + " to the list")
-            console.log("lista antes de actualizar invitados: " + guests)
-            guests.push(guestName)
-            console.log("lista despues de actualizar invitados: " + guests)
-
+        let guests = ["gaby", "maria"]; // declare two initial guests
+        const renderListOfGuests = () => { // function declaration (blue print, what i want the machine to do)
             // 3. Render this list out as HTML
 
             // The ul inner elements are deleted to avoid repeating the names of the guests array
@@ -56,8 +43,29 @@
             // 4. Update the number of the Total Guest
             document.getElementById('totalCount').innerHTML = guests.length
 
+        }
+        renderListOfGuests() // function execution (run the function, create an instance of the blueprint)
+
+
+        const addGuest = () => {
+            console.log('Adding Guest...')
+            //Todos:
+            // 1. Check the name from the input tag and put it in a variable
+
+            const guestName = document.getElementById('bananaName').value //value va a ser lo que escriba el usuario
+            console.log("The new guest name is: " + guestName)
+
+            // 2. Push (append) the guest to the guest's list
+
+            console.log("adding guest " + guestName + " to the list")
+            console.log("lista antes de actualizar invitados: " + guests)
+            guests.push(guestName)
+            console.log("lista despues de actualizar invitados: " + guests)
+
+            renderListOfGuests()
 
         }
     </script>
 </body>
+
 </html>

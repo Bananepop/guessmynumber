@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zombie Banana Party</title>
+    <style>
+        img {
+            width: 100px;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,7 +30,15 @@
         // Boilerplate code for the Zombie Banana Party application
 
         // Create an array to store the list of guests
-        let guests = ["gaby", "maria"]; // declare two initial guests
+        let guests = [{
+            name: "Gaby",
+            avatarg: "https://api.dicebear.com/7.x/adventurer/svg?seed=Gaby"
+        }, {
+            name: "Maria",
+            avatarg: "https://api.dicebear.com/7.x/adventurer/svg?seed=Maria"
+        }]; // declare two initial guests
+
+
         const renderListOfGuests = () => { // function declaration (blue print, what i want the machine to do)
             // 3. Render this list out as HTML
 
@@ -33,10 +46,18 @@
             document.getElementById('guestList').innerHTML = ""
 
             guests.forEach(
-                guest => {
+                guestInTheLoop => {
                     const newListItem = document.createElement("li")
-                    newListItem.innerHTML = guest
-                    document.getElementById('guestList').appendChild(newListItem)
+                    const guestName = document.createElement("h2")
+                    const avatarImage = document.createElement("img") // Create three elements on the fly
+
+                    guestName.innerHTML = guestInTheLoop.name // put object properties in new HTML elements
+                    avatarImage.src = guestInTheLoop.avatarg
+
+                    newListItem.appendChild(guestName)
+                    newListItem.appendChild(avatarImage) // put elements into list containers
+
+                    document.getElementById('guestList').appendChild(newListItem) // put list containers into where it goes in the page, into the html.
                 }
             )
 
@@ -59,7 +80,11 @@
 
             console.log("adding guest " + guestName + " to the list")
             console.log("lista antes de actualizar invitados: " + guests)
-            guests.push(guestName)
+            const newGuest = {
+                name: guestName,
+                avatarg: "https://api.dicebear.com/7.x/adventurer/svg?seed=" + guestName
+            }
+            guests.push(newGuest)
             console.log("lista despues de actualizar invitados: " + guests)
 
             renderListOfGuests()
